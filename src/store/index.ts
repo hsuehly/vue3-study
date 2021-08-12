@@ -4,7 +4,7 @@ import { createStore, Store, useStore as baseUseStore } from 'vuex'
 
 // 模块
 import person from './modules/person'
-import Count from './modules/count'
+import count from './modules/count'
 
 
 
@@ -86,9 +86,9 @@ import Count from './modules/count'
 
 export const store = createStore({
   modules: {
-    a: Count,
-    b: person
-  }
+   count,
+   person
+  }as any
 })
 
 

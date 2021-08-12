@@ -1,8 +1,8 @@
 <template>
-<h1>当前求和为: {{store.state.a.sum}}</h1>
+<h1>当前求和为: {{store.state.count.sum}}</h1>
 <h1>当前求和放大10倍后为: {{store.getters.bigSum}}</h1>
-<h3>我在{{store.state.a.school}} 学习{{store.state.a.subject}}</h3>
-<h3 style="color: red;">Person组件的总人数为: {{store.state.b.length}}</h3>
+<h3>我在{{store.state.count.school}} 学习{{store.state.count.subject}}</h3>
+<h3 style="color: red;">Person组件的总人数为: {{store.state.person.length}}</h3>
 <select v-model.number="nRef">
   <option value="1">1</option>
   <option value="2">2</option>
@@ -32,7 +32,7 @@ export default defineComponent({
       const store = useStore()
 
       const nRef = ref(1)
-      console.log(store.state.a.sum,"3333")
+      console.log(store.state.count.sum,"3333")
 
       const increment = () => {
       store.commit("JIA",nRef.value)
