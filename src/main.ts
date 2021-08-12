@@ -1,6 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import  {key, store} from './store'
 
-createApp(App).use(store).use(router).mount('#app')
+  const app =createApp(App)
+  // 不分模块加key
+  // app.use(store, key)
+  // 分模块使用当前
+  app.use(store)
+  app.use(router)
+  app.mount('#app')
