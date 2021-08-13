@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, toRefs } from 'vue'
-import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router'
 import { useStore } from 'vuex'
 import Person from './person2.vue'
 
@@ -58,17 +57,6 @@ export default defineComponent({
     const incrementWait = () => {
         store.dispatch("jiaWait",nRef.value)
     }
-    // 通过路由路由更新是调用
-    onBeforeRouteUpdate(()=>{
-      console.log("路由进入");
-      
-    })
-    
-    // 通过路由规则, 离开该组件时被调用
-    onBeforeRouteLeave(()=> {
-      console.log("路由离开");
-      
-    })
 
       return {
         store,
@@ -81,19 +69,6 @@ export default defineComponent({
         showRef
 
       }
-    },
-    // 通过路由规则, 进入该组件时被调用
-    beforeRouteEnter(to,from,next) {
-      console.log("opt-api 路由进入");
-      
-
-    },
-    // 通过路由规则, 离开该组件时被调用
-    beforeRouteLeave(to,from,next) {
-      console.log("opt-api 路由离开");
-      
-
-    }
-    
+    } 
 })
 </script>
