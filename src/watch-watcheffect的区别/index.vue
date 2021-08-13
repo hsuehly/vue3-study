@@ -23,7 +23,7 @@ export default defineComponent({
       age:20
     })
     const ageRef = ref(25) 
-
+    // 如果用reactive 定义的数据 用watch 监控 会出现newvalue 和oldvalue 的数据是一样的
     watchEffect(()=> {
       // 初始化就会执行一次 用于收集要监听的数据
       console.log("state.name",state.name);
@@ -39,7 +39,7 @@ export default defineComponent({
       ageRef.value = 30
     },1000)
     setTimeout(()=> {
-      state.age = 90
+      state.age = 90 
 },2000)
       
 
