@@ -1,52 +1,41 @@
 <template>
-  <p>{{ageRef}}</p>
-  <button @click="ageRef ++">+</button>
+ <input type="text" v-model="dataRef">
+ <p>{{dataRef}}</p>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref,customRef} from 'vue'
+
+export default defineComponent({
+  setup() {
   
-  <hr>
-  <p>data: {{data}}</p>
-  <p>y: {{y}}</p>
-  <button @click="y ++">+</button>
-  <p>{{person.age}}</p>
-  <button @click="person.age ++">+</button>
-  <hr>
-  <p>薪资:{{person.job.k.xinzhi}}k</p>
-  <p>{{x}}</p>
-  <button @click="person.job.k.xinzhi ++">+</button>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent, reactive, ref, toRef, watch, watchEffect } from 'vue'
-  export default defineComponent({
-    setup() { 
-      const ageRef = ref(0)
-      const person = reactive({
-        name:"hsueh",
-        age: 0,
-        job: {
-          k:{
-            xinzhi: 20
+
+      function myRef(value: string,delay: number) {
+          let timer: number;
+        return customRef<string>((track,trigger)=> ({
+        
+          get() {
+            console.log("有人读取数据了",value);
+            track()// 通知vue追踪value的变化
+            return value
+            
+
+          },
+          set(newval) {
+            console.log("有人修改数据了",newval);
+           clearTimeout(timer)
+            timer = setTimeout(() => {
+              value = newval
+               trigger() // 通知vue去重新解析模板
+            }, delay);
           }
-        }
-      })
-      const data = {
-        name: 'hsueh',
-        age: 23
+        }))
       }
-      const x = toRef(person.job.k,"xinzhi")
-      const y = toRef(data,"age")
-      console.log(x.value)
-      console.log(y,"==")
-      return {
-        ageRef,
-        person,
-        x,
-        y,
-        data
-      }
-  
+        const dataRef = myRef("",1500)
+
+    return {
+      dataRef
     }
-  
-  
-  })
-  </script>
-  
+  },
+})
+</script>
