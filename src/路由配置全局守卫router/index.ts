@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/index.vue'
-// import Count from '@/views/count.vue'
-// import Person from '@/views/person2.vue'
+import Count from '@/views/count.vue'
+import Person from '@/views/person2.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -11,36 +11,36 @@ const routes: Array<RouteRecordRaw> = [
       title: "主页"
     }
   },
-  // {
-  //   path: '/cou',
-  //   name: 'Count',
-  //   meta: {
-  //     title: "计算详情",
-  //     isAuth: true
-  //   },
-  //   component: Count,
-  //   // 独享路由守卫 只有前置没有后置
-  //   // beforeEnter(to, from, next){
-  //   //   if(to.meta.isAuth) { // 判读是否需要监权
-  //   //     if(localStorage.getItem("name") === "hsueh") {
-  //   //       next()
-  //   //     }else {
-  //   //       alert("没有权限")
-  //   //     }
-  //   //    } else {
-  //   //      next()
-  //   //    }
-  //   // }
-  // },
-  // {
-  //   path: '/per',
-  //   name: 'person',
-  //   component: Person,
-  //   meta: { // 一般可以放自定义数据, 路由元数据
-  //     isAuth: true,
-  //     title: "任务详情"
-  //   } 
-  // } 
+  {
+    path: '/cou',
+    name: 'Count',
+    meta: {
+      title: "计算详情",
+      isAuth: true
+    },
+    component: Count,
+    // 独享路由守卫 只有前置没有后置
+    // beforeEnter(to, from, next){
+    //   if(to.meta.isAuth) { // 判读是否需要监权
+    //     if(localStorage.getItem("name") === "hsueh") {
+    //       next()
+    //     }else {
+    //       alert("没有权限")
+    //     }
+    //    } else {
+    //      next()
+    //    }
+    // }
+  },
+  {
+    path: '/per',
+    name: 'person',
+    component: Person,
+    meta: { // 一般可以放自定义数据, 路由元数据
+      isAuth: true,
+      title: "任务详情"
+    } 
+  } 
   // {
   //   path: '/about',
   //   name: 'About',
