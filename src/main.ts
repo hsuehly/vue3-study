@@ -7,6 +7,7 @@ import  {key, store} from './store'
   // 不分模块加key
   // app.use(store, key)
   // 分模块使用当前
+  app.config.globalProperties.x = "hsueh"
   app.use(store)
   app.use(router)
   app.mount('#app')
