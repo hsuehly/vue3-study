@@ -1,15 +1,15 @@
 <template>
-  <div class="app">
-    <h3>我是app组件</h3>
-    <Child />
+  <div class="son">
+    <h3>我是Son组件</h3>
+    <Dialog />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Child from './Child.vue'
+import Dialog from './Dialog.vue'
 export default defineComponent({
-  components: {Child},
+  components: {Dialog},
   setup() {
     
   },
@@ -17,8 +17,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.app {
-  background-color: rgb(31, 80, 187);
+.son {
+  background-color: gray;
   padding: 18px;
 }
 </style>
